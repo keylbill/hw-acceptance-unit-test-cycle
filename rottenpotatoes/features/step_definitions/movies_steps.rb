@@ -23,3 +23,7 @@ Then /I should see all the movies/ do
     step %{I should see "#{movie.title}"}
   end
 end
+
+Then /the director of "(.*)" should be "(.*)"/ do |movie, director|
+  (page.body.match?(/#{movie}.*Director:.#{director}/m)).should be true
+end
